@@ -1,0 +1,206 @@
+/* ------------------------------
+   ESTILOS GLOBALES
+-------------------------------*/
+body {
+    background-color: #0f1117;
+    color: #f2f2f2;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ENCABEZADO PRINCIPAL (solo texto) */
+.header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0078D7, #004a9d);
+    color: white;
+    padding: 22px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    animation: fadeDown 1.2s ease;
+}
+.header h1 {
+    font-size: 25px;
+    margin: 0;
+}
+.header p {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* ------------------------------
+   LOGO FIJO ARRIBA IZQUIERDA
+-------------------------------*/
+#fixed-logo {
+    position: fixed;
+    top: 15px;
+    left: 22px;
+    z-index: 10000;
+    width: 70px;
+    height: auto;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    padding: 6px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: all 0.4s ease;
+    opacity: 0;
+    animation: fadeInLogo 1.4s ease forwards;
+}
+#fixed-logo:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.18);
+}
+
+/* ------------------------------
+   TABLA DE REGISTROS
+-------------------------------*/
+.dataframe {
+    border: 2px solid #0078D7 !important;
+    border-radius: 10px;
+    background-color: #1a1d29;
+    color: #fff;
+}
+th {
+    background-color: #0078D7 !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+td {
+    padding: 8px 12px !important;
+}
+
+/* ------------------------------
+   BOTONES PRIMARIOS
+-------------------------------*/
+button[kind="primary"] {
+    background-color: #0078D7 !important;
+    color: white !important;
+    border-radius: 8px !important;
+}
+
+/* ------------------------------
+   FOOTER FIJO ELEGANTE
+-------------------------------*/
+#app-footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(25, 25, 25, 0.9);
+    color: #eaeaea;
+    padding: 10px 22px;
+    border-radius: 14px;
+    font-size: 13px;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 9999;
+    animation: fadeUp 1.3s ease forwards;
+    opacity: 0;
+}
+#app-footer:hover {
+    transform: translateX(-50%) scale(1.05);
+    color: #00B4FF;
+}
+
+/* ------------------------------
+   BOTÓN DE AYUDA (?)
+-------------------------------*/
+#info-btn {
+    position: fixed;
+    bottom: 95px;
+    left: 25px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(145deg, #0078D7, #005bb5);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 10000;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+#info-btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(145deg, #008cff, #004a9d);
+}
+
+/* Tooltip del botón de ayuda */
+#info-tooltip {
+    position: fixed;
+    bottom: 155px;
+    left: 25px;
+    background: rgba(30,30,30,0.9);
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px 18px;
+    width: 240px;
+    font-size: 13px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: all 0.35s ease;
+}
+#info-btn:hover + #info-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* ------------------------------
+   BOTÓN FLOTANTE "SUBIR"
+-------------------------------*/
+.scroll-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #00a2ff, #005fc3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    transition: all 0.3s ease;
+    opacity: 0.85;
+    border: 2px solid #ffffff30;
+}
+.scroll-to-top:hover {
+    transform: translateY(-4px) scale(1.08);
+    opacity: 1;
+    background: linear-gradient(145deg, #0090f0, #004a9d);
+}
+
+/* ------------------------------
+   ANIMACIONES
+-------------------------------*/
+@keyframes fadeInLogo {
+    0% { opacity: 0; transform: translateY(-15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translate(-50%, 10px); }
+    100% { opacity: 1; transform: translate(-50%, 0); }
+}
+@keyframes fadeDown {
+    0% { opacity: 0; transform: translateY(-15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
