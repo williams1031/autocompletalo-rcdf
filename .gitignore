@@ -1,0 +1,32 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de build o ejecutables
+build/
+dist/
+*.spec
+*.exe
+*.msi
+
+# Archivos temporales
+*.log
+.cache/
+.ipynb_checkpoints/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos personales o grandes
+*.xlsx
+*.csv
+
+# Streamlit
+# (Descomenta la siguiente línea si no quieres subir la config)
+# .streamlit/config.toml

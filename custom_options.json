@@ -1,0 +1,91 @@
+{
+  "acta": [
+    "SI",
+    "NO"
+  ],
+  "ejecuta": [
+    "EAAB",
+    "CONTRATISTA"
+  ],
+  "clase": [
+    "Comercial",
+    "Especial",
+    "Fachada en latas",
+    "Industrial",
+    "Multiusuario",
+    "N/A",
+    "No indica en el acta",
+    "Oficial",
+    "Residencial"
+  ],
+  "actividad_economica": [
+    "N/A",
+    "CEMENTERIO",
+    "COLEGIO",
+    "CADE",
+    "ARCHIVO EAAB",
+    "SEDE COA EAAB",
+    "OFICINA ACUEDUCTO",
+    "OFICINA CADE",
+    "ANTENA REPETIDORA",
+    "EAAB",
+    "HOTEL",
+    "PARQUEADERO",
+    "OFICINA BODEGA",
+    "LAVADERO",
+    "Farmacia quimica",
+    "PROCESADORES DE PAPA",
+    "LOCAL",
+    "TEXTILERA",
+    "RESTAURANTE",
+    "CALL CENTEER",
+    "LAVADERO DE VEHICULOS",
+    "VIVIENDA",
+    "LOCAL DESOCUPADO",
+    "3 locales",
+    "SALON COMUNAL"
+  ],
+  "ef_terreno": [
+    "EFECTIVA",
+    "INEFECTIVA",
+    "DEPURADO"
+  ],
+  "ef_rcdf": [
+    "EFECTIVA",
+    "INEFECTIVA",
+    "DEPURADO",
+    "PARCIAL",
+    "NO INDICADO EN EL ACTA"
+  ],
+  "anomalia": [
+    "N/A",
+    "SERVICIO NORMAL",
+    "PREDIO SOLO",
+    "SIN CONEXION ACUEDUCTO",
+    "6 PUNTOS SIN CONTABILIZAR",
+    "OTRA",
+    "EN OBSERVACIONES",
+    "SERVICIO DIRECTO",
+    "SEGUIMIENTO",
+    "POSIBLE ANOMALIA EN EL APARATO DE MEDICIÓN",
+    "RECONEXION SIN AUTORIZACION DE LA EAAB",
+    "NO INDICADO EN EL ACTA",
+    "TAPONADO O SUSPENDIDO",
+    "MEDIDOR CON CANDADO",
+    "PARA EXCAVACIÓN",
+    "LEVANTAR BOLSA DE SEGURIDAD",
+    "PREDIO DESOCUPADO",
+    "RETIRAR 2 MEDIDORES BOLSA DE SEGURIDAD",
+    "ACOMETIDA CON CONEXION NO AUTORIZADA"
+  ],
+  "parcial": [
+    "N/A",
+    "PREDIO EXTRACCION CENTRAL OPERACIONES",
+    "EN OBSERVACIONES",
+    "MEDIDOR CON CANDADO",
+    "PARA EXCAVACION",
+    "EXCAVACIÓN",
+    "LEVANTAR BOLSA DE SEGURIDAD",
+    "OPERATIVO CON OTRA CUADRILLA"
+  ]
+}
