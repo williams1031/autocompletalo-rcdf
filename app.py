@@ -13,6 +13,7 @@ from unidecode import unidecode
 # CONFIGURACIÓN INICIAL
 # ---------------------------------------------------------
 st.set_page_config(page_title="Autocomplétalo", page_icon="📄", layout="centered")
+<<<<<<< HEAD
 st.sidebar.write("**Debug**")
 st.sidebar.write("Python:", __import__("sys").version.split()[0])
 
@@ -25,6 +26,8 @@ if "form_version" not in st.session_state:
 
 st.sidebar.write("len(registros):", len(st.session_state["registros"]))
 
+=======
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
 st.markdown("<div id='app-top'></div>", unsafe_allow_html=True)
 
 # ==== FUNCIÓN PARA CARGAR EL LOGO ====
@@ -41,7 +44,11 @@ try:
 except FileNotFoundError:
     st.warning("⚠️ No se encontró el archivo de estilos (styles/style.css).")
 
+<<<<<<< HEAD
 # ==== ENCABEZADO ====
+=======
+# ==== ENCABEZADO SIN LOGO ====
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
 st.markdown(f"""
 <div class='header'>
     <div>
@@ -141,6 +148,12 @@ custom_options = load_custom_options()
 archivo = st.file_uploader("📤 Sube tu archivo Excel (.xlsx)", type=["xlsx"])
 nombre_hoja = st.text_input("📑 Nombre de la hoja dentro del archivo", value="PROGRAMACION")
 
+<<<<<<< HEAD
+=======
+st.session_state.setdefault("registros", [])
+st.session_state.setdefault("confirmar_borrado", False)
+st.session_state.setdefault("form_version", 0)
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
 v = st.session_state["form_version"]
 
 # ---------------------------------------------------------
@@ -153,6 +166,7 @@ def editable_select(label, options, base_key):
     opciones = custom_options[base_key]
     col1, col2 = st.columns([4, 1])
     with col2:
+<<<<<<< HEAD
         mostrar_otro = st.toggle("✏️ Otro", key=f"{base_key}_toggle_{v}", label_visibility="collapsed")
     with col1:
         seleccionado = st.selectbox(label, [""] + opciones, key=f"{base_key}_sel_{v}", disabled=mostrar_otro)
@@ -160,6 +174,26 @@ def editable_select(label, options, base_key):
     manual = ""
     if mostrar_otro:
         manual = st.text_input(f"Ingresar otro valor para '{label}'", key=f"{base_key}_txt_{v}", placeholder="Escribe aquí...")
+=======
+        mostrar_otro = st.toggle("✏️ Otro",
+                                 key=f"{base_key}_toggle_{v}",
+                                 label_visibility="collapsed")
+    with col1:
+        seleccionado = st.selectbox(
+            label,
+            [""] + opciones,
+            key=f"{base_key}_sel_{v}",
+            disabled=mostrar_otro,
+        )
+
+    manual = ""
+    if mostrar_otro:
+        manual = st.text_input(
+            f"Ingresar otro valor para '{label}'",
+            key=f"{base_key}_txt_{v}",
+            placeholder="Escribe aquí...",
+        )
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
         if manual.strip() and manual.strip() not in opciones:
             opciones.append(manual.strip())
             custom_options[base_key] = opciones
@@ -174,14 +208,27 @@ st.subheader("🧾 Datos del código")
 
 codigo = st.text_input("Código:", key=f"codigo_{v}")
 no_acta = st.text_input("No. Acta inspección:", key=f"no_acta_{v}")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
 acta_firmada = editable_select("Acta firmada:", ["SI", "NO"], "acta")
 ejecuta = editable_select("Ejecuta:", ["EAAB", "CONTRATISTA"], "ejecuta")
 
 fecha_cal = st.date_input("Fecha de ejecución:", value=datetime.date.today(), key=f"fecha_cal_{v}")
 fecha_ejecucion = fecha_cal.strftime("%d/%m/%Y")
 
+<<<<<<< HEAD
 clase_uso = editable_select("Clase de uso:", ["Comercial", "Especial", "Fachada en latas", "Industrial", "Multiusuario",
      "N/A", "No indica en el acta", "Oficial", "Residencial"], "clase")
+=======
+clase_uso = editable_select(
+    "Clase de uso:",
+    ["Comercial", "Especial", "Fachada en latas", "Industrial", "Multiusuario",
+     "N/A", "No indica en el acta", "Oficial", "Residencial"],
+    "clase"
+)
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
 
 actividad_economica = editable_select("Actividad económica:", ["N/A"], "actividad_economica")
 ef_terreno = editable_select("Efectividad en terreno:", ["EFECTIVA", "INEFECTIVA", "DEPURADO"], "ef_terreno")
@@ -196,7 +243,10 @@ estado = editable_select("Estado:", ["GESTIONADO", "EN GESTION"], "estado")
 # BOTONES DE ACCIÓN
 # ---------------------------------------------------------
 c1, c2, c3 = st.columns([1, 1, 1])
+<<<<<<< HEAD
 
+=======
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
 with c1:
     if st.button("➕ Agregar código"):
         if not codigo.strip():
@@ -225,6 +275,7 @@ with c2:
     if st.button("🧹 Limpiar campos"):
         st.session_state["form_version"] += 1
         st.rerun()
+<<<<<<< HEAD
 
 # ===== BORRAR LISTA (mejorado) =====
 with c3:
@@ -261,6 +312,11 @@ if st.session_state["registros"]:
     st.dataframe(st.session_state["registros"])
 else:
     st.info("Aún no hay registros agregados.")
+=======
+with c3:
+    if st.button("🗑️ Borrar lista de registros"):
+        st.session_state["confirmar_borrado"] = True
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
 
 # ---------------------------------------------------------
 # PROCESAR Y DESCARGAR EXCEL
@@ -307,11 +363,33 @@ if st.button("🧾 Procesar y descargar Excel"):
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             )
 
+<<<<<<< HEAD
+=======
+            # Mostrar resumen por fecha
+            st.markdown("---")
+            st.subheader("📅 Códigos registrados por fecha")
+            registros_por_fecha = {}
+            for reg in st.session_state["registros"]:
+                fecha = reg.get("Fecha de ejecución", "Sin fecha")
+                if fecha not in registros_por_fecha:
+                    registros_por_fecha[fecha] = []
+                registros_por_fecha[fecha].append(reg)
+
+            for fecha, regs in sorted(registros_por_fecha.items(), reverse=True):
+                st.markdown(f"### 📆 {fecha}")
+                for r in regs:
+                    st.markdown(f"- {r['Código']}")
+
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
         except Exception as e:
             st.error(f"❌ Error al procesar el archivo: {e}")
 
 # ---------------------------------------------------------
+<<<<<<< HEAD
 # ELEMENTOS FIJOS
+=======
+# ELEMENTOS FIJOS: LOGO, FOOTER, BOTONES
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
 # ---------------------------------------------------------
 st.markdown(f"""
 <img id="fixed-logo" src="data:image/png;base64,{logo}" alt="Logo Acueducto">
@@ -333,3 +411,7 @@ st.markdown(f"""
     </svg>
 </a>
 """, unsafe_allow_html=True)
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 77caa48fdee38330369ef425655992cac994f468
